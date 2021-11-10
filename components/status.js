@@ -1,27 +1,30 @@
-import { CheckIcon, ExclamationIcon } from '@heroicons/react/solid';
+import { BadgeCheckIcon, ExclamationIcon } from '@heroicons/react/solid';
+import axios from 'axios';
 import useSWR from 'swr';
 
-const fetchWithTimeout = (url) =>
-  Promise.race([
-    fetch(url),
-    new Promise((_, reject) => {
-      setTimeout(() => reject(new Error('timeout')), 10000);
-    }),
-  ]);
-
-const fetcher = (url) => fetchWithTimeout(url).then((res) => res.json());
+const fetcher = (url) => axios.get(url, { timeout: '5000' });
 
 export default function Status({ url }) {
   const { data, error } = useSWR(url, fetcher);
+
+  const { host } = new URL(url);
 
   if (error) {
     return (
       <div>
         <div className="flex flex-row items-center">
-          <ExclamationIcon className="h-5 w-5 text-red-500"></ExclamationIcon>
-          <p className="text-xl ml-2">{url}</p>
+          <ExclamationIcon className="h-6 w-6 text-red-500"></ExclamationIcon>
+          <p className="text-xl ml-2">{host}</p>
         </div>
-        {data.error && <p className="text-xs mt-2">{data.error}</p>}
+        {error && (
+          <div className="text-sm px-10 mt-2 w-full">
+            <p>
+              Unable to access{' '}
+              <span className="underline text-blue-600">{host}</span> -{' '}
+              {error.message}
+            </p>
+          </div>
+        )}
       </div>
     );
   }
@@ -31,8 +34,8 @@ export default function Status({ url }) {
   return (
     <div>
       <div className="flex flex-row items-center">
-        <CheckIcon className="h-5 w-5 text-green-500"></CheckIcon>
-        <p className="text-xl ml-2">{url}</p>
+        <BadgeCheckIcon className="h-6 w-6 text-green-600"></BadgeCheckIcon>
+        <p className="text-xl ml-2">{host}</p>
       </div>
     </div>
   );

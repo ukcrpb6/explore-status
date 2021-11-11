@@ -4,6 +4,7 @@ import Status from '../components/status';
 const urls = [
   'https://explore-api-green.pa.media/v2/info',
   'https://explore-api-production-green.pamedia.io/v2/info',
+  'https://explore-api-blue.pa.media/v2/info',
   'https://explore-api-production-blue.pamedia.io/v2/info',
   'https://explore-menu.pa.media/create-config.json',
   'https://explore-partner-content.pa.media/config.json',

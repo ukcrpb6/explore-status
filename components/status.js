@@ -16,15 +16,13 @@ export default function Status({ url }) {
           <ExclamationIcon className="h-6 w-6 text-red-500"></ExclamationIcon>
           <p className="text-xl ml-2">{host}</p>
         </div>
-        {error && (
-          <div className="text-sm px-10 mt-2 w-full">
-            <p>
-              Unable to access{' '}
-              <span className="underline text-blue-600">{host}</span> -{' '}
-              {error.message}
-            </p>
-          </div>
-        )}
+        <div className="text-sm px-10 mt-2 w-full">
+          <p>
+            Unable to access{' '}
+            <span className="underline text-blue-600">{host}</span> -{' '}
+            {error.message}
+          </p>
+        </div>
       </div>
     );
   }

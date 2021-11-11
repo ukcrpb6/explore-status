@@ -3,6 +3,7 @@ import Status from '../components/status';
 
 const urls = [
   'https://explore-api-green.pa.media/v2/info',
+  'https://explore-api-production-green.pamedia.io/v2/info',
   'https://explore-api-production-blue.pamedia.io/v2/info',
   'https://explore-menu.pa.media/create-config.json',
   'https://explore-partner-content.pa.media/config.json',
@@ -18,16 +19,16 @@ export default function Home() {
       </Head>
 
       <main className="min-h-screen max-w-screen-2xl mx-auto flex flex-col justify-center bg-daily bg-no-repeat">
-        <div className="min-h-screen backdrop-filter backdrop-sepia py-6 sm:py-12 ">
-          <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-            <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 z-10 backdrop-filter backdrop-blur-xl bg-opacity-80 border border-gray-200">
-              <div>
+        <div className="min-h-screen backdrop-filter backdrop-sepia py-6 sm:py-12">
+          <div className="relative py-12 sm:max-w-xl sm:mx-auto">
+            <div className="relative px-4 py-12 sm:p-20 sm:pt-12 bg-white shadow-lg sm:rounded-3xl z-10 backdrop-filter backdrop-blur-xl bg-opacity-80 border border-gray-200">
+              <div className="border-b border-gray-400">
                 <img
                   src="https://explore.pa.media/images/pa-media-explore-logo.svg"
-                  className="h-[4rem] mb-10 mx-auto"
+                  className="h-[4rem] mb-8 mx-auto"
                 />
               </div>
-              <div className="max-w-md mx-auto">
+              <div className="max-w-md mx-auto py-6 border-b border-gray-400">
                 <ul>
                   {urls.map((url, index) => (
                     <li key={index} className="mt-4">
@@ -35,6 +36,11 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+              </div>
+              <div className="absolute bottom-1 right-6 text-xs text-gray-600">
+                <a href="https://vercel.com/about" target="_blank">
+                  Powered by Vercel
+                </a>
               </div>
             </div>
           </div>

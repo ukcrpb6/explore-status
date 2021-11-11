@@ -17,11 +17,7 @@ export default function Status({ url }) {
           <p className="text-xl ml-2">{host}</p>
         </div>
         <div className="text-sm px-10 mt-2 w-full">
-          <p>
-            Unable to access{' '}
-            <span className="underline text-blue-600">{host}</span> -{' '}
-            {error.message}
-          </p>
+          <p>Unable to access server - {error.message}</p>
         </div>
       </div>
     );

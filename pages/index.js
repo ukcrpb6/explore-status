@@ -38,8 +38,8 @@ export default function Home() {
                 </ul>
               </div>
               <div className="absolute bottom-1 right-6 text-xs text-gray-600">
-                <a href="https://vercel.com/about" target="_blank">
-                  Powered by Vercel
+                <a href="https://nextjs.org/" target="_blank">
+                  Powered by Next.js
                 </a>
               </div>
             </div>

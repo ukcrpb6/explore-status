@@ -1,11 +1,19 @@
 import { BadgeCheckIcon, ExclamationIcon } from '@heroicons/react/solid';
 import axios from 'axios';
+import isReachable from 'is-reachable';
 import useSWR from 'swr';
 
-const fetcher = (url) => axios.get(url, { timeout: '5000' });
+const selectFetcher = (mode) => {
+  switch (mode) {
+    case 'is-reachable':
+      return isReachable;
+    default:
+      return (url) => axios.get(url, { timeout: '5000' });
+  }
+};
 
-export default function Status({ url }) {
-  const { data, error } = useSWR(url, fetcher);
+export default function Status({ url, mode }) {
+  const { data, error } = useSWR(url, selectFetcher(mode));
 
   const { host } = new URL(url);
 

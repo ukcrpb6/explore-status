@@ -1,14 +1,12 @@
 import Head from 'next/head';
 import Status from '../components/status';
 
-const urls = [
-  'https://explore-api-green.pa.media/v2/info',
-  'https://explore-api-production-green.pamedia.io/v2/info',
-  'https://explore-api-blue.pa.media/v2/info',
-  'https://explore-api-production-blue.pamedia.io/v2/info',
-  'https://explore-menu.pa.media/create-config.json',
-  'https://explore-partner-content.pa.media/config.json',
-  // 'https://httpstat.us/404/cors',
+const checks = [
+  { url: 'https://explore.pa.media', mode: 'is-reachable' },
+  { url: 'https://explore-api-green.pa.media/v2/info' },
+  { url: 'https://explore-api-blue.pa.media/v2/info' },
+  { url: 'https://explore-menu.pa.media/create-config.json' },
+  { url: 'https://explore-partner-content.pa.media/config.json' },
 ];
 
 export default function Home() {
@@ -23,17 +21,23 @@ export default function Home() {
         <div className="min-h-screen backdrop-filter backdrop-sepia py-6 sm:py-12">
           <div className="relative py-12 sm:max-w-xl sm:mx-auto">
             <div className="relative px-4 py-12 sm:p-20 sm:pt-12 bg-white shadow-lg sm:rounded-3xl z-10 backdrop-filter backdrop-blur-xl bg-opacity-80 border border-gray-200">
-              <div className="border-b border-gray-400">
+              <div className="border-b border-gray-0">
                 <img
                   src="https://explore.pa.media/images/pa-media-explore-logo.svg"
                   className="h-[4rem] mb-8 mx-auto"
                 />
               </div>
-              <div className="max-w-md mx-auto py-6 border-b border-gray-400">
+              <div className="max-w-md  mx-auto py-6 border-t border-b border-gray-400">
+                <div className="mx-auto pb-6">
+                  <p className="text-base font-bold sm:text-lg text-center">
+                    Service Accessibility
+                  </p>
+                </div>
+
                 <ul>
-                  {urls.map((url, index) => (
-                    <li key={index} className="mt-4">
-                      <Status url={url}></Status>
+                  {checks.map((check, index) => (
+                    <li key={index} className="mt-4 first:mt-0">
+                      <Status url={check.url} mode={check.mode}></Status>
                     </li>
                   ))}
                 </ul>

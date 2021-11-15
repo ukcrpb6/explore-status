@@ -21,10 +21,10 @@ export default function Status({ url, mode }) {
     return (
       <div>
         <div className="flex flex-row items-center">
-          <ExclamationIcon className="h-6 w-6 text-red-500"></ExclamationIcon>
-          <p className="text-xl ml-2">{host}</p>
+          <ExclamationIcon className="w-6 h-6 text-red-500"></ExclamationIcon>
+          <p className="ml-2 text-xl">{host}</p>
         </div>
-        <div className="text-sm px-10 mt-2 w-full">
+        <div className="w-full px-10 mt-2 text-sm">
           <p>Unable to access server - {error.message}</p>
         </div>
       </div>
@@ -36,8 +36,8 @@ export default function Status({ url, mode }) {
   return (
     <div>
       <div className="flex flex-row items-center">
-        <BadgeCheckIcon className="h-6 w-6 text-green-600"></BadgeCheckIcon>
-        <p className="text-xl ml-2">{host}</p>
+        <BadgeCheckIcon className="w-6 h-6 text-green-600"></BadgeCheckIcon>
+        <p className="ml-2 text-xl">{host}</p>
       </div>
     </div>
   );

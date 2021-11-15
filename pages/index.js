@@ -11,28 +11,28 @@ const checks = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-engineer-black">
+    <div className="min-h-screen bg-engineer-black-500">
       <Head>
         <title>Explore Status</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="min-h-screen max-w-screen-2xl mx-auto flex flex-col justify-center bg-daily bg-no-repeat">
-        <div className="min-h-screen backdrop-filter backdrop-sepia py-6 sm:py-12">
+      <main className="flex flex-col justify-center max-w-screen-xl min-h-screen mx-auto bg-no-repeat bg-daily">
+        <div className="min-h-screen py-6 sm:py-12">
           <div className="relative py-12 sm:max-w-xl sm:mx-auto">
-            <div className="relative px-4 py-12 sm:p-20 sm:pt-12 bg-white shadow-lg sm:rounded-3xl z-10 backdrop-filter backdrop-blur-xl bg-opacity-80 border border-gray-200">
-              <div className="border-b border-gray-0">
+            <div className="relative z-10 px-4 py-12 bg-white border border-gray-200 shadow-lg sm:p-20 sm:pt-12 sm:rounded-3xl backdrop-blur-md bg-opacity-60">
+              <div className="">
                 <img
                   src="https://explore.pa.media/images/pa-media-explore-logo.svg"
-                  className="h-[4rem] mb-8 mx-auto"
+                  className="h-[4rem] mx-auto"
                 />
-              </div>
-              <div className="max-w-md  mx-auto py-6 border-t border-b border-gray-400">
-                <div className="mx-auto pb-6">
-                  <p className="text-base font-bold sm:text-lg text-center">
+                <div className="my-4">
+                  <p className="text-base font-bold text-center sm:text-lg">
                     Service Accessibility
                   </p>
                 </div>
+              </div>
+              <div className="max-w-md py-6 mx-auto border-t border-b border-gray-400">
 
                 <ul>
                   {checks.map((check, index) => (
@@ -42,7 +42,7 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <div className="absolute bottom-1 right-6 text-xs text-gray-600">
+              <div className="absolute text-xs text-gray-500 bottom-1 right-6">
                 <a href="https://nextjs.org/" target="_blank">
                   Powered by Next.js
                 </a>
